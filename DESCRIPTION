@@ -1,0 +1,16 @@
+Package: ComtradeAPI
+Type: Package
+Title: comtrade API for R
+Version: 1.0
+Date: 2023-11-18
+Author: GTA
+Maintainer: Global Trade Alert <sven.glinz.gta@gmail.com>
+Description: Download data from comtrade via the comtrade API
+LazyData: true
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Imports:
+    cli,
+    glue,
+    magrittr,
+    purrr
