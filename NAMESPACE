@@ -1,2 +1,4 @@
 export(getBulkData)
 export(getData)
+export(previewBulkData)
+export(getBulkDataFromLink)
