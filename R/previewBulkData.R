@@ -32,5 +32,5 @@ previewBulkData <- function(
     # get data
     content <- apiRequest(base_url, attributes)
 
-    return(out)
+    return(content)
 }
