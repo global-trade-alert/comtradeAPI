@@ -11,11 +11,10 @@
 #' Multi value input should be in the form of csv (Codes separated by comma (,))
 #' @param publishedDateFrom Publication date From YYYY-MM-DD (NOT MANDATORY)
 #' @param publishedDateTo Publication date To YYYY-MM-DD (NOT MANDATORY)
-#' @returns # description of what the function returns
 #' @description
 #' getBulkData(
 #'  base_url = "https://comtradeapi.un.org/bulk/v1/get"
-#'  key,
+#'  key = getPrimaryKey(),
 #'  typeCode = "C",
 #'  freqCode = "A",
 #'  clCode = "HS",

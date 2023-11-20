@@ -40,7 +40,6 @@
 #'  includeDesc = NULL,
 #'  maxRecords = NULL
 #' )
-#' @import magrittr
 #'
 #' @export
 getData <- function(
