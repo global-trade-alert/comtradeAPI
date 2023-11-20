@@ -11,19 +11,6 @@
 #' Multi value input should be in the form of csv (Codes separated by comma (,))
 #' @param publishedDateFrom Publication date From YYYY-MM-DD (NOT MANDATORY)
 #' @param publishedDateTo Publication date To YYYY-MM-DD (NOT MANDATORY)
-#' @description
-#' getBulkData(
-#'  base_url = "https://comtradeapi.un.org/bulk/v1/get"
-#'  key = getPrimaryKey(),
-#'  typeCode = "C",
-#'  freqCode = "A",
-#'  clCode = "HS",
-#'  reporterCode = NULL,
-#'  period = NULL,
-#'  publishedDateFrom = NULL,
-#'  publishedDateTo = NULL,
-#'  fileLocation = NULL
-#')
 #' @export
 getBulkData <- function(
     base_url = "https://comtradeapi.un.org/bulk/v1/get",

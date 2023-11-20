@@ -13,10 +13,6 @@ getPrimaryKey()
 \item{key}{your comtrade API key}
 }
 \description{
-setPrimaryKey(key)
-getPrimaryKey()
-}
-\details{
 Use thesee functions to supply your comtrade API key which is needed for the other functions
 in this package to interact with the API
 }

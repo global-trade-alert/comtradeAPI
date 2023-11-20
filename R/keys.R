@@ -1,12 +1,10 @@
 #' set and retreive comtrade API key
 #'
+#' @description
 #' Use thesee functions to supply your comtrade API key which is needed for the other functions
 #' in this package to interact with the API
 #'
 #' @param key your comtrade API key
-#' @description
-#' setPrimaryKey(key)
-#' getPrimaryKey()
 #' @export
 #'
 #' @describeIn Keys set API key

@@ -9,15 +9,9 @@ decompressFiles(filePath, removeOriginal = FALSE)
 \arguments{
 \item{filePath}{the path where the to-be decompressed files are located}
 
-\item{removeOriginal}{if TRUE, the function will delete the compressed files after decompression}
+\item{removeOriginal}{if TRUE, the function will delete the compressed files after decompression#'}
 }
 \description{
-decompressFiles(
- filePath,
- removeOriginal = FALSE
-)
-}
-\details{
 This function lcoates all files with ending .txt.gz in the specified filePath and decompressed them.
 Please make sure that the filePath you supply contains only files you wish to decompress!
 }

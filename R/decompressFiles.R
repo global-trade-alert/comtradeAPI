@@ -1,16 +1,11 @@
 #' Decompress the files downloaded with comtradeAPI::getBulkDataFromLink / comtradeAPI::getBulkData
 #'
+#' @description
 #' This function lcoates all files with ending .txt.gz in the specified filePath and decompressed them.
 #' Please make sure that the filePath you supply contains only files you wish to decompress!
 #'
 #' @param filePath the path where the to-be decompressed files are located
-#' @param removeOriginal if TRUE, the function will delete the compressed files after decompression
-#' @description
-#' decompressFiles(
-#'  filePath,
-#'  removeOriginal = FALSE
-#' )
-#'
+#' @param removeOriginal if TRUE, the function will delete the compressed files after decompression#'
 #' @export
 decompressFiles <- function(filePath, removeOriginal = FALSE) {
     filePath <- stringr::str_remove(filePath, "/$")

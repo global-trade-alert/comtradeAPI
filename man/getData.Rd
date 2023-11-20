@@ -62,23 +62,5 @@ Multi value input should be in the form of csv (Codes separated by comma (,))}
 \item{Second}{partner/consignment code (Possible values are M49 code of the countries separated by comma (,))}
 }
 \description{
-getData(
- base_url = "https://comtradeapi.un.org/data/v1/get/",
- key,
- typeCode = "C",
- freqCode = "A",
- clCode = "HS",
- reporterCode = NULL,
- period = NULL,
- partnerCode = NULL,
- partner2Code = NULL,
- cmdCode = NULL,
- flowCode = NULL,
- customsCode = NULL,
- motCode = NULL,
- aggregateBy = NULL,
- breakdownMode = NULL,
- includeDesc = NULL,
- maxRecords = NULL
-)
+Download data from comtrade
 }

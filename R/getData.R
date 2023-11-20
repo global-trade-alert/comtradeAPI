@@ -20,27 +20,6 @@
 #' @param breakdownMode Mode to choose from
 #' @param includeDesc Include descriptions of data variables
 #' @param maxRecords Maximum number of rows the query should return
-#' @description
-#' getData(
-#'  base_url = "https://comtradeapi.un.org/data/v1/get/",
-#'  key,
-#'  typeCode = "C",
-#'  freqCode = "A",
-#'  clCode = "HS",
-#'  reporterCode = NULL,
-#'  period = NULL,
-#'  partnerCode = NULL,
-#'  partner2Code = NULL,
-#'  cmdCode = NULL,
-#'  flowCode = NULL,
-#'  customsCode = NULL,
-#'  motCode = NULL,
-#'  aggregateBy = NULL,
-#'  breakdownMode = NULL,
-#'  includeDesc = NULL,
-#'  maxRecords = NULL
-#' )
-#'
 #' @export
 getData <- function(
     base_url = "https://comtradeapi.un.org/data/v1/get/",

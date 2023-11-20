@@ -37,19 +37,6 @@ Multi value input should be in the form of csv (Codes separated by comma (,))}
 \item{publishedDateTo}{Publication date To YYYY-MM-DD (NOT MANDATORY)}
 }
 \description{
-previewBulkData(
- base_url = "https://comtradeapi.un.org/bulk/v1/get",
- key = getPrimaryKey(),
- typeCode = "C",
- freqCode = "A",
- clCode = "HS",
- reporterCode = NULL,
- period = NULL,
- publishedDateFrom = NULL,
- publishedDateTo = NULL
-)
-}
-\details{
 This function allows you to catch a glimpse at the links which would be downloaded
 were you to pass the same parameters in \code{comtradeAPI::getBulkData}
 This includes information such as the size of each file as well as its contents
