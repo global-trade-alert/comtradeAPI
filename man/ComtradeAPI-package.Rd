@@ -1,24 +1,24 @@
-\name{ComtradeAPI-package}
-\alias{ComtradeAPI-package}
-\alias{ComtradeAPI}
+\name{comtradeAPI-package}
+\alias{comtradeAPI-package}
+\alias{comtradeAPI}
 \docType{package}
 \title{
-\packageTitle{ComtradeAPI}
+\packageTitle{comtradeAPI}
 }
 \description{
-\packageDescription{ComtradeAPI}
+\packageDescription{comtradeAPI}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{ComtradeAPI}
-\packageIndices{ComtradeAPI}
+\packageDESCRIPTION{comtradeAPI}
+\packageIndices{comtradeAPI}
 Use this package to downlaod trade data through the comtrade API
 }
 \author{
-\packageAuthor{ComtradeAPI}
+\packageAuthor{comtradeAPI}
 
-Maintainer: \packageMaintainer{ComtradeAPI}
+Maintainer: \packageMaintainer{comtradeAPI}
 }
 \references{
 See [comtrade](https://comtradedeveloper.un.org) for more information
