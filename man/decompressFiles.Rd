@@ -2,7 +2,7 @@
 % Please edit documentation in R/decompressFiles.R
 \name{decompressFiles}
 \alias{decompressFiles}
-\title{Decompress the files downloaded with comtradeAPI::getBulkDataFromLink / comtradeAPI::getBulkData}
+\title{Decompress bulk files}
 \usage{
 decompressFiles(filePath, removeOriginal = FALSE)
 }

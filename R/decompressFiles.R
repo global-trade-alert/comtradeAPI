@@ -1,4 +1,4 @@
-#' Decompress the files downloaded with comtradeAPI::getBulkDataFromLink / comtradeAPI::getBulkData
+#' Decompress bulk files
 #'
 #' @description
 #' This function lcoates all files with ending .txt.gz in the specified filePath and decompressed them.
