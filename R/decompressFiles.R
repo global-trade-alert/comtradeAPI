@@ -22,7 +22,7 @@ decompressFiles <- function(filePath, removeOriginal = FALSE) {
             unlink(glue::glue('{filePath}/{files[i]}'))
         }
 
-        msg <- cli::style_bold(glue::glue("file {i}/{length(files)} done"))
+        msg <- cli::style_bold(cli::col_green(glue::glue("file {i}/{length(files)} done")))
         cat("\r", msg)
     }
 }

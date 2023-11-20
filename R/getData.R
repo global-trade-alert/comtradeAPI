@@ -45,26 +45,19 @@ getData <- function(
     # base URL with mandatory parameters
     base_url <- glue::glue("{base_url}/{typeCode}/{freqCode}/{clCode}")
 
-    # add optional parameters & API key to url
+    # add API key to query
     attributes <- list("subscription-key" = key)
 
-	# append values with possible vector input to attributes
-	vectorValues <- list(
-		"reporterCode" = reporterCode, "partnerCode" = partnerCode, "partner2Code" = partner2Code,
-		"cmdCode" = cmdCode, "flowCode" = flowCode, "customsCode" = customsCode, "motCode" = motCode
-	)
+    # add optional attributes to query
+    argValues <- list(
+        reporterCode = reporterCode, period = period, partnerCode = partnerCode, partner2Code = partner2Code,
+        cmdCode = cmdCode, flowCode = flowCode, customsCode = customsCode, motCode = motCode,
+        aggregateBy = aggregateBy, breakdownMode = breakdownMode, includeDesc = includeDesc, maxRecords = maxRecords
+    )
+    for (i in seq_along(argValues)) {
+        attributes <- appendAttributes(names(argValues)[i], argValues[i], attributes, freqCode)
+    }
 
-	for (i in seq_along(vectorValues){
-		if (!is.null(vectorValues[i]{
-			temp <- paste0(vectorValues[i], collapse = ",")
-			attributes <- append(attributes, setnames(temp, names(vectorValues)[i])
-		}
-	}
-	
-# append values with single value to attributes 
-	
-	# handle PERIOD
-    
     # get data
     out <- apiRequest(base_url, attributes)
     return(out)

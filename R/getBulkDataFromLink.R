@@ -18,17 +18,19 @@ getBulkDataFromLink <- function(
         {
             # downlaod as binary
             file_url <- httr::modify_url(data$fileUrl[i], query = key_attr)
-            entry <- data[i, ]
+            entry <- data[i,]
             name <- glue::glue("{entry$reporterCode}_{entry$freqCode}_{entry$typeCode}_{entry$classificationCode}_{entry$period}")
-            download.file(file_url, destfile = glue::glue("{filePath}/{name}.txt.gz"), mode = "wb")
+            download.file(file_url, destfile = glue::glue("{filePath}/{name}.txt.gz"), mode = "wb", quiet = TRUE)
+            msg <- cli::style_bold(cli::col_green(glue::glue("file {i}/{nrow(data)} downloaded")))
+            cat("\r", msg)
         },
             error = function(e) {
-                print("something went wrong") # specify behavior more clearly
+                cli::cli_abort("Error in download of file {entry$reporterCode}_{entry$freqCode}_{entry$typeCode}_{entry$classificationCode}_{entry$period}")
             }
         )
-        # sleep 3s after every 5th call
-        if (i %% 5 == 0) {
-            Sys.sleep(3)
+        # sleep 4s after every 10th call
+        if (i %% 10 == 0) {
+            Sys.sleep(4)
         }
     }
     # set timeout back to default

@@ -42,7 +42,7 @@ getBulkData <- function(
         publishedDateFrom = publishedDateFrom,
         publishedDateTo = publishedDateTo
     )
-    print(links)
+
     if (length(links) == 0) {
         cli::cli_abort("No files found with these parameters")
     } else {
