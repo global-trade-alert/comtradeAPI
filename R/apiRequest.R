@@ -3,6 +3,11 @@ apiRequest <- function(base_url, attributes) {
 
     url <- httr::modify_url(base_url, query = attributes)
 
+    # check query length
+    if (stringr::str_length(url) > 4095) {
+        cli::cli_abort("generated request is > 4096 characters. Please supply less arguments", call = NULL)
+    }
+
     # define transient behavior
     isTransient <- function(resp) {
         return(httr2::resp_status(resp) == 429)

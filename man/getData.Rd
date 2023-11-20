@@ -35,21 +35,22 @@ getData(
 Available Options: HS, H0 - H6, S1-S4, BE, BE5, Eb, EB10, EB02, EBSDMX}
 
 \item{reporterCode}{Reporter Code (possible values are M49 code of the countries)
-See \code{ComtradeAPI::reporterCode} for country, code pairs (NOT MANDATORY)}
+Multi value input via vectors accepted
+ See \code{ComtradeAPI::reporterCode} for country, code pairs (NOT MANDATORY)}
 
 \item{period}{Year or month. Year should be 4 digit year.
 Month should be six digit integer with the values of the form YYYYMM. Ex: 201002 for 2010 February.
-Multi value input should be in the form of csv (Codes separated by comma (,)) (NOT MANDATORY)}
+Multi value input via vectors accepted  (NOT MANDATORY)}
 
-\item{partnerCode}{Partner code (Possible values are M49 code of the countries separated by comma (,))}
+\item{partnerCode}{Partner code (Possible values are M49 code) Multi value input via vectors accepted}
 
-\item{cmdCode}{Commodity code. Multi value input should be in the form of csv (Codes separated by comma (,))}
+\item{cmdCode}{Commodity code. Multi value input via vectors accepted.}
 
-\item{flowCode}{Trade flow code. Multi value input should be in the form of csv (Codes separated by comma (,))}
+\item{flowCode}{Trade flow code. Multi value input via vectors accepted}
 
-\item{customsCode}{Customs code. Multi value input should be in the form of csv (Codes separated by comma (,))}
+\item{customsCode}{Customs code. Multi value input via vectors accepted}
 
-\item{motCode}{Mode of transport code. Multi value input should be in the form of csv (Codes separated by comma (,))}
+\item{motCode}{Mode of transport code. Multi value input via vectors accepted}
 
 \item{aggregateBy}{Add parameters in csv list on which you want the results to be aggregated}
 
@@ -59,7 +60,7 @@ Multi value input should be in the form of csv (Codes separated by comma (,)) (N
 
 \item{maxRecords}{Maximum number of rows the query should return}
 
-\item{Second}{partner/consignment code (Possible values are M49 code of the countries separated by comma (,))}
+\item{Second}{partner/consignment code (Possible values are M49 code) Multi value input via vectors accepted}
 }
 \description{
 Download data from comtrade

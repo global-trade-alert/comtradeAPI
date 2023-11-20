@@ -6,16 +6,17 @@
 #' @param clCode Trade (IMTS) classification: HS, SITC, BEC or EBOPS (MANDATORY)
 #' Available Options: HS, H0 - H6, S1-S4, BE, BE5, Eb, EB10, EB02, EBSDMX
 #' @param reporterCode Reporter Code (possible values are M49 code of the countries)
+#' Multi value input via vectors accepted
 #'  See \code{ComtradeAPI::reporterCode} for country, code pairs (NOT MANDATORY)
 #' @param period Year or month. Year should be 4 digit year.
 #' Month should be six digit integer with the values of the form YYYYMM. Ex: 201002 for 2010 February.
-#' Multi value input should be in the form of csv (Codes separated by comma (,)) (NOT MANDATORY)
-#' @param partnerCode Partner code (Possible values are M49 code of the countries separated by comma (,))
-#' @param Second partner/consignment code (Possible values are M49 code of the countries separated by comma (,))
-#' @param cmdCode Commodity code. Multi value input should be in the form of csv (Codes separated by comma (,))
-#' @param flowCode Trade flow code. Multi value input should be in the form of csv (Codes separated by comma (,))
-#' @param customsCode Customs code. Multi value input should be in the form of csv (Codes separated by comma (,))
-#' @param motCode Mode of transport code. Multi value input should be in the form of csv (Codes separated by comma (,))
+#' Multi value input via vectors accepted  (NOT MANDATORY)
+#' @param partnerCode Partner code (Possible values are M49 code) Multi value input via vectors accepted
+#' @param Second partner/consignment code (Possible values are M49 code) Multi value input via vectors accepted
+#' @param cmdCode Commodity code. Multi value input via vectors accepted.
+#' @param flowCode Trade flow code. Multi value input via vectors accepted
+#' @param customsCode Customs code. Multi value input via vectors accepted
+#' @param motCode Mode of transport code. Multi value input via vectors accepted
 #' @param aggregateBy Add parameters in csv list on which you want the results to be aggregated
 #' @param breakdownMode Mode to choose from
 #' @param includeDesc Include descriptions of data variables

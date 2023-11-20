@@ -28,20 +28,38 @@ previewBulkData <- function(
     # add optional parameters & API key to url
     attributes <- list("subscription-key" = key)
 
-    # get function arguments supplied
-    argValues <- match.call() %>%
-        as.list()
-
-    # remove values which are specified in base_url
-    mandatory_values <- c("", "key", "base_url", "typeCode", "freqCode, clCode", "fileLocation")
-    argValues <- argValues[!names(argValues) %in% mandatory_values]
-    argNames <- names(argValues)
-
-    for (i in seq_along(argValues)) {
-        if (!is.null(argValues[i])) {
-            attributes <- append(attributes, setNames(argValues[i], argNames[i]))
+    # convert period input
+    if (!is.null(period)) {
+        # generate monthly period values if freq is M but period is in years
+        if (freqCode == "M" && all(stringr::str_length(period) == 4)) {
+            months <- 1:12 %>%
+                stringr::str_pad(width = "2", pad = "0", side = "left")
+            period <- rep(period, each = length(months))
+            period <- paste0(period, months, collapse = ",")
+        } else if (freqCode == "M" && !all(stringr::str_length(period) == 6)) {
+            cli::cli_abort("Supplied period values are not all in same format")
+        } else if (freqCode == "A" && !all(stringr::str_length(period) == 4)) {
+            cli::cli_abort("FreqCode A indicated but not all periods are YYYY")
+        } else {
+            period <- paste(period, collapse = ",")
         }
+        attributes <- append(attributes, setNames(period, "period"))
     }
+
+    if (!is.null(reporterCode)) {
+        reporterCode <- paste(reporterCode, collapse = ",")
+        attributes <- append(attributes, setNames(reporterCode, "reporterCode"))
+    }
+
+    if (!is.null(publishedDateFrom)) {
+        attributes <- append(attributes, setNames(publishedDateFrom, "publishedDateFrom"))
+
+    }
+
+    if (!is.null(publishedDateTo)) {
+        attributes <- append(attributes, setNames(publishedDateTo, "publishedDateTo"))
+    }
+
     # get data
     content <- apiRequest(base_url, attributes)
     return(content)

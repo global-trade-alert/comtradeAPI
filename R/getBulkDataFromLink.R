@@ -2,7 +2,7 @@
 getBulkDataFromLink <- function(
     key = getPrimaryKey(),
     data,
-    fileLocation,
+    filePath,
     timeout = 300
 ) {
     if (!all(c("fileUrl", "reporterCode", "freqCode", "typeCode", "classificationCode", "period") %in% colnames(data))) {
@@ -10,6 +10,7 @@ getBulkDataFromLink <- function(
     }
     # retreive files and store
     key_attr <- list("subscription-key" = key)
+
     defaultTimeout <- getOption("timeout")
     options(timeout = timeout)
     for (i in seq_along(data$fileUrl)) {
@@ -17,8 +18,9 @@ getBulkDataFromLink <- function(
         {
             # downlaod as binary
             file_url <- httr::modify_url(data$fileUrl[i], query = key_attr)
-            name <- glue::glue("{data$reporterCode}_{data$freqCode}_{data$typeCode}_{data$classificationCode}_{data$period}")
-            download.file(file_url, destfile = glue::glue("{fileLocation}/{name}.txt.gz"), mode = "wb")
+            entry <- data[i, ]
+            name <- glue::glue("{entry$reporterCode}_{entry$freqCode}_{entry$typeCode}_{entry$classificationCode}_{entry$period}")
+            download.file(file_url, destfile = glue::glue("{filePath}/{name}.txt.gz"), mode = "wb")
         },
             error = function(e) {
                 print("something went wrong") # specify behavior more clearly
