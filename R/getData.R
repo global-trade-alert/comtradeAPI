@@ -48,20 +48,23 @@ getData <- function(
     # add optional parameters & API key to url
     attributes <- list("subscription-key" = key)
 
-    # get function arguments supplied
-    argValues <- match.call() %>%
-        as.list()
+	# append values with possible vector input to attributes
+	vectorValues <- list(
+		"reporterCode" = reporterCode, "partnerCode" = partnerCode, "partner2Code" = partner2Code,
+		"cmdCode" = cmdCode, "flowCode" = flowCode, "customsCode" = customsCode, "motCode" = motCode
+	)
 
-    # remove values which are specified in base_url
-    mandatory_values <- c("", "key", "base_url", "typeCode", "freqCode, clCode")
-    argValues <- argValues[!names(argValues) %in% mandatory_values]
-    argNames <- names(argValues)
-
-    for (i in seq_along(argValues)) {
-        if (!is.null(argValues[i])) {
-            attributes <- append(attributes, setNames(argValues[i], argNames[i]))
-        }
-    }
+	for (i in seq_along(vectorValues){
+		if (!is.null(vectorValues[i]{
+			temp <- paste0(vectorValues[i], collapse = ",")
+			attributes <- append(attributes, setnames(temp, names(vectorValues)[i])
+		}
+	}
+	
+# append values with single value to attributes 
+	
+	# handle PERIOD
+    
     # get data
     out <- apiRequest(base_url, attributes)
     return(out)
