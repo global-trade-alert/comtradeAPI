@@ -5,12 +5,12 @@ decompressFiles <- function(filePath, removeOriginal = FALSE) {
     files <- files[stringr::str_detect(files, ".txt.gz$")]
 
     for (i in seq_along(files)) {
-        temp <- data.table::fread(glue::glue('{filePath}/{files[i]}'))
+        temp <- data.table::fread(glue::glue("{filePath}/{files[i]}"))
         outName <- stringr::str_remove(files[i], ".txt.gz")
         outName <- glue::glue("{filePath}/{outName}.csv")
         data.table::fwrite(temp, file = outName)
 
-        if (removeOriginal){
+        if (removeOriginal) {
             unlink(glue::glue('{filePath}/{files[i]}'))
         }
 
