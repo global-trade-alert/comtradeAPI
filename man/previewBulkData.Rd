@@ -28,9 +28,9 @@ previewBulkData(
 \item{reporterCode}{Reporter Code (possible values are M49 code of the countries)
 See \code{ComtradeAPI::reporterCode} for country, code pairs (NOT MANDATORY)}
 
-\item{period}{Year or month. Year should be 4 digit year. (NOT MANDATORY)
+\item{period}{Year or month. Year should be 4 digit year.
 Month should be six digit integer with the values of the form YYYYMM. Ex: 201002 for 2010 February.
-Multi value input should be in the form of csv (Codes separated by comma (,))}
+Multi value input should be in the form of csv (Codes separated by comma (,))  (NOT MANDATORY)}
 
 \item{publishedDateFrom}{Publication date From YYYY-MM-DD (NOT MANDATORY)}
 

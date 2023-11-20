@@ -6,9 +6,9 @@
 #' @param clCode Trade (IMTS) classification: HS, SITC, BEC or EBOPS (MANDATORY)
 #' @param reporterCode Reporter Code (possible values are M49 code of the countries)
 #'  See \code{ComtradeAPI::reporterCode} for country, code pairs (NOT MANDATORY)
-#' @param period Year or month. Year should be 4 digit year. (NOT MANDATORY)
+#' @param period Year or month. Year should be 4 digit year.
 #' Month should be six digit integer with the values of the form YYYYMM. Ex: 201002 for 2010 February.
-#' Multi value input should be in the form of csv (Codes separated by comma (,))
+#' Multi value input should be in the form of csv (Codes separated by comma (,))  (NOT MANDATORY)
 #' @param publishedDateFrom Publication date From YYYY-MM-DD (NOT MANDATORY)
 #' @param publishedDateTo Publication date To YYYY-MM-DD (NOT MANDATORY)
 #' @export
