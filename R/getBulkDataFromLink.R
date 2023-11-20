@@ -4,7 +4,6 @@ getBulkDataFromLink <- function(
     data,
     fileLocation
 ) {
-
     if (!all(c("fileUrl", "reporterCode", "freqCode", "typeCode", "classificationCode", "period") %in% colnames(data))) {
         cli::cli_abort("make sure input data frame contains the required columns")
     }
