@@ -1,8 +1,12 @@
 # need to supply a few more parameters!
-getBulkDataFromLink <- function(key = key, data, fileLocation) {
+getBulkDataFromLink <- function(
+    key = getPrimaryKey(),
+    data,
+    fileLocation
+) {
 
     if (!all(c("fileUrl", "reporterCode", "freqCode", "typeCode", "classificationCode", "period") %in% colnames(data))) {
-        stop("make sure input data frame contains the required columns")
+        cli::cli_abort("make sure input data frame contains the required columns")
     }
     # retreive files and store
     key_attr <- list("subscription-key" = key)
@@ -17,9 +21,9 @@ getBulkDataFromLink <- function(key = key, data, fileLocation) {
                 print("something went wrong") # specify behavior more clearly
             }
         )
-        # sleep 5s after every 10th call
-        if (i %% 10 == 0) {
-            Sys.sleep(5)
+        # sleep 3s after every 5th call
+        if (i %% 5 == 0) {
+            Sys.sleep(3)
         }
     }
 }

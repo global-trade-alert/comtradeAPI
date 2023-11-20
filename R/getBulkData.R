@@ -28,7 +28,7 @@
 #' @export
 getBulkData <- function(
     base_url = "https://comtradeapi.un.org/bulk/v1/get",
-    key = key,
+    key = getPrimaryKey(),
     fileLocation,
     typeCode = "C",
     freqCode = "A",

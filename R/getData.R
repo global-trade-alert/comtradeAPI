@@ -45,7 +45,7 @@
 #' @export
 getData <- function(
     base_url = "https://comtradeapi.un.org/data/v1/get/",
-    key,
+    key = getPrimaryKey(),
     typeCode = "C",
     freqCode = "A",
     clCode = "HS",

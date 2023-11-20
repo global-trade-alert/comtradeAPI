@@ -1,6 +1,6 @@
 previewBulkData <- function(
     base_url = "https://comtradeapi.un.org/bulk/v1/get",
-    key = key,
+    key = getPrimaryKey(),
     typeCode = "C",
     freqCode = "A",
     clCode = "HS",

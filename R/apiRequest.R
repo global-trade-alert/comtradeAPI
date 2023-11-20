@@ -2,24 +2,25 @@
 apiRequest <- function(base_url, attributes) {
 
     url <- httr::modify_url(base_url, query = attributes)
-    # make API request
-    request <- httr::GET(url)
 
-    # check if request succeeded
-    status <- httr::status_code(request)
-    if (status != 200) {
-        status <- httr::http_status(request)
-        cli::cli_abort(status$message, call = NULL)
-    } else if (status == 429) {
-        cli::cli_abort("Rate limit exceeded: API Error Message: {status$message}", call = NULL)
+    # define transient behavior
+    isTransient <- function(resp) {
+        return(httr2::resp_status(resp) == 429)
     }
 
-    content <- httr::content(request)
-    content <- content$data
+    comtradeAfter <- function(resp) {
+        after <- as.numeric(httr2::resp_header(resp, "Retry-After"))
+        return(after)
+    }
 
-    # transform to dataframe
-    content <- content %>%
-        purrr::map_dfr(\(x) x)
+    # execute request
+    request <- httr2::request(url) %>%
+        httr2::req_throttle(rate = 20 / 60) %>% # rate limit of 20 calls per minute
+        httr2::req_retry(is_transient = isTransient, after = comtradeAfter, max_tries = 2) %>%
+        httr2::req_perform()
+
+    content <- httr2::resp_body_json(request, simplifyVector = TRUE)
+    content <- content$data
 
     return(content)
 }

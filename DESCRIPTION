@@ -1,4 +1,4 @@
-Package: ComtradeAPI
+Package: comtradeAPI
 Type: Package
 Title: comtrade API for R
 Version: 1.0
@@ -13,4 +13,8 @@ Imports:
     cli,
     glue,
     magrittr,
-    purrr
+    httr2,
+    httr,
+    stringr,
+    data.table
+
