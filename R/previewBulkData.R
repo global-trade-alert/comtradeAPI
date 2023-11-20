@@ -45,20 +45,21 @@ previewBulkData <- function(
         }
         attributes <- append(attributes, setNames(period, "period"))
     }
-
+	
+	# values with possible vector input
     if (!is.null(reporterCode)) {
         reporterCode <- paste(reporterCode, collapse = ",")
         attributes <- append(attributes, setNames(reporterCode, "reporterCode"))
     }
 
-    if (!is.null(publishedDateFrom)) {
-        attributes <- append(attributes, setNames(publishedDateFrom, "publishedDateFrom"))
-
-    }
-
-    if (!is.null(publishedDateTo)) {
-        attributes <- append(attributes, setNames(publishedDateTo, "publishedDateTo"))
-    }
+	# single values
+	singleValues <- c("publishedDateFrom" = publishedDateFrom, "publishedDateTo" = publishedDateTo)
+	
+	for (i in seq_along(singleValues)){
+    	if (!is.null(singleValues[i])) {
+        	attributes <- append(attributes, setNames(singleValues[i], names(singleValues)[i])
+    	}
+	}
 
     # get data
     content <- apiRequest(base_url, attributes)
