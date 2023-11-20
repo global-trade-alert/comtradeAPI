@@ -15,7 +15,7 @@
 getBulkData <- function(
     base_url = "https://comtradeapi.un.org/bulk/v1/get",
     key = getPrimaryKey(),
-    fileLocation,
+    filePath,
     typeCode = "C",
     freqCode = "A",
     clCode = "HS",
@@ -24,19 +24,33 @@ getBulkData <- function(
     publishedDateFrom = NULL,
     publishedDateTo = NULL
 ) {
+    # base URL with mandatory parameters
+    base_url <- glue::glue("{base_url}/{typeCode}/{freqCode}/{clCode}")
 
-    # get file with links
-    links <- previewBulkData(
-        base_url = "https://comtradeapi.un.org/bulk/v1/get",
-        key = key,
-        typeCode = typeCode,
-        freqCode = freqCode,
-        clCode = clCode,
-        reporterCode = reporterCode,
-        period = period,
-        publishedDateFrom = publishedDateFrom,
-        publishedDateTo = publishedDateTo
-    )
+    # add optional parameters & API key to url
+    attributes <- list("subscription-key" = key)
 
-    getBulkDataFromLink(key, links, fileLocation)
+    # get function arguments supplied
+    argValues <- match.call() %>%
+        as.list()
+
+    # remove values which are specified in base_url
+    mandatory_values <- c("", "key", "base_url", "typeCode", "freqCode, clCode", "fileLocation")
+    argValues <- argValues[!names(argValues) %in% mandatory_values]
+    argNames <- names(argValues)
+
+    for (i in seq_along(argValues)) {
+        if (!is.null(argValues[i])) {
+            attributes <- append(attributes, setNames(argValues[i], argNames[i]))
+        }
+    }
+
+    # get data
+    links <- apiRequest(base_url, attributes)
+
+    if (length(links) == 0){
+        cli::cli_abort("No files found with these parameters")
+    } else {
+        getBulkDataFromLink(key, links, filePath)
+    }
 }
