@@ -62,3 +62,4 @@ getData <- function(
     out <- apiRequest(base_url, attributes)
     return(out)
 }
+
