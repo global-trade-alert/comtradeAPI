@@ -2,6 +2,12 @@
 
 Interact with the [comtradeAPI](https://comtradeplus.un.org/) to download data directly or via their bulk downloading service.
 For a more detailed description of the admissible parameters and functionality beyond the function descriptions, please see [here](https://unstats.un.org/wiki/display/comtrade/New+Comtrade+User+Guide#NewComtradeUserGuide-UNComtradeAPIManagement).
+
+## Installation 
+```r
+# install the package from github by pasting the following command to your console
+devtools::install_github("global-trade-alert/comtradeAPI")
+```
 ## Functionality 
 
 ### 1. Set your API Key
